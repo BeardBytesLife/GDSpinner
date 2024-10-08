@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://tp5xio7cw0i5"]
+
+[ext_resource type="Script" path="res://Scripts/array_list_item.gd" id="1_hpvne"]
+
+[node name="ArrayListItem" type="HBoxContainer" node_paths=PackedStringArray("label")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -575.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hpvne")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DeleteButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Delete"

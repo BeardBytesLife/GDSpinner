@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtajkskryrn6j"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_001tw"]
+
+[node name="Main" type="Control" node_paths=PackedStringArray("lineedit")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_001tw")
+lineedit = NodePath("VBoxContainer/HBoxContainer/TextFieldAddItem")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelAddItem" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Add Item"
+
+[node name="TextFieldAddItem" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Placeholder"
+
+[node name="AddItemButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Add Item"
+
+[connection signal="text_submitted" from="VBoxContainer/HBoxContainer/TextFieldAddItem" to="." method="appendList"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/AddItemButton" to="." method="AddItem"]
