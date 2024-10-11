@@ -10,28 +10,54 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_001tw")
-lineedit = NodePath("VBoxContainer/HBoxContainer/TextFieldAddItem")
+lineedit = NodePath("ListContainer/HBoxContainer/TextFieldAddItem")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="ListContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
+offset_right = 421.0
 offset_bottom = 40.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ListContainer"]
 layout_mode = 2
 
-[node name="LabelAddItem" type="Label" parent="VBoxContainer/HBoxContainer"]
+[node name="LabelAddItem" type="Label" parent="ListContainer/HBoxContainer"]
 layout_mode = 2
 text = "Add Item"
 
-[node name="TextFieldAddItem" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
+[node name="TextFieldAddItem" type="LineEdit" parent="ListContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Placeholder"
 
-[node name="AddItemButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="AddItemButton" type="Button" parent="ListContainer/HBoxContainer"]
 layout_mode = 2
 text = "Add Item"
 
-[connection signal="text_submitted" from="VBoxContainer/HBoxContainer/TextFieldAddItem" to="." method="appendList"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/AddItemButton" to="." method="AddItem"]
+[node name="SpinContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -711.0
+offset_top = -226.0
+offset_bottom = 227.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="RandomItem" type="Label" parent="SpinContainer"]
+layout_mode = 2
+text = "Random Item Placeholder"
+
+[node name="SpinButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 700.0
+offset_top = 33.0
+offset_right = 905.0
+offset_bottom = 64.0
+text = "SPIN"
+
+[connection signal="text_submitted" from="ListContainer/HBoxContainer/TextFieldAddItem" to="." method="appendList"]
+[connection signal="pressed" from="ListContainer/HBoxContainer/AddItemButton" to="." method="AddItem"]
+[connection signal="pressed" from="SpinButton" to="." method="_on_spin_button_pressed"]

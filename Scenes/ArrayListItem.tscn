@@ -16,7 +16,9 @@ label = NodePath("Label")
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DeleteButton" type="Button" parent="."]
+[node name="ListItemDeleteButton" type="Button" parent="."]
 layout_mode = 2
 size_flags_horizontal = 8
 text = "Delete"
+
+[connection signal="pressed" from="ListItemDeleteButton" to="." method="DeleteButtonPressed"]
