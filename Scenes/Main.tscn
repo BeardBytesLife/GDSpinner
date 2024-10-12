@@ -48,7 +48,6 @@ grow_vertical = 2
 
 [node name="RandomItem" type="Label" parent="SpinContainer"]
 layout_mode = 2
-text = "Random Item Placeholder"
 
 [node name="SpinButton" type="Button" parent="."]
 layout_mode = 0
